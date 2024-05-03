@@ -19,6 +19,7 @@ class _TellerViewState extends State<TellerView> {
   @override
   void initState() {
     super.initState();
+    ServerService.setServerIpFromMemory();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await ServerService.getLocalIp();
       await HttpService.getQueue().then((result) {

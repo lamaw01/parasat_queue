@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/server_service.dart';
-// import '../widget/logout_button_widget.dart';
+import '../widget/logout_button_widget.dart';
 
 class ServerSettingsView extends StatelessWidget {
   const ServerSettingsView({super.key});
@@ -13,7 +13,7 @@ class ServerSettingsView extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Server Settings'),
         actions: const [
-          // LogoutButtonWidget(),
+          LogoutButtonWidget(),
         ],
       ),
       body: Center(

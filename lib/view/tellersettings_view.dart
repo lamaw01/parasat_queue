@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/server_service.dart';
-// import '../widget/logout_button_widget.dart';
+import '../widget/logout_button_widget.dart';
 
 class TellerSettingsView extends StatefulWidget {
   const TellerSettingsView({super.key});
@@ -27,7 +27,7 @@ class _TellerSettingsViewState extends State<TellerSettingsView> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Teller Settings'),
         actions: const [
-          // LogoutButtonWidget(),
+          LogoutButtonWidget(),
         ],
       ),
       body: Center(

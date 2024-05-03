@@ -25,6 +25,13 @@ class ServerService {
     });
   }
 
+  static void setServerIpFromMemory() async {
+    _serverIp = SharedPreferencesService.getString('serverIp') ?? _serverIp;
+    await HttpService.getQueue().then((result) {
+      setQueueCounterFromServer(result.regular, result.special);
+    });
+  }
+
   static Future<void> getLocalIp() async {
     try {
       final List<NetworkInterface> interfaces = await NetworkInterface.list();
