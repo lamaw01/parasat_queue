@@ -134,6 +134,10 @@ class _TellerViewState extends State<TellerView> {
                               showSnackBar(context, 'Error adding queue');
                             }
                           });
+                          await HttpService.getQueue().then((result) {
+                            setQueueCounterFromServer(
+                                result.regular, result.special);
+                          });
                         },
                         icon: const Icon(
                           Icons.remove,
@@ -151,6 +155,10 @@ class _TellerViewState extends State<TellerView> {
                             if (!success) {
                               showSnackBar(context, 'Error adding queue');
                             }
+                          });
+                          await HttpService.getQueue().then((result) {
+                            setQueueCounterFromServer(
+                                result.regular, result.special);
                           });
                         },
                         icon: const Icon(
@@ -179,6 +187,10 @@ class _TellerViewState extends State<TellerView> {
                               showSnackBar(context, 'Error decreasing queue');
                             }
                           });
+                          await HttpService.getQueue().then((result) {
+                            setQueueCounterFromServer(
+                                result.regular, result.special);
+                          });
                         },
                         icon: const Icon(
                           Icons.remove,
@@ -196,6 +208,10 @@ class _TellerViewState extends State<TellerView> {
                             if (!success) {
                               showSnackBar(context, 'Error decreasing queue');
                             }
+                          });
+                          await HttpService.getQueue().then((result) {
+                            setQueueCounterFromServer(
+                                result.regular, result.special);
                           });
                         },
                         icon: const Icon(

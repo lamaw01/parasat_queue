@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../services/http_service.dart';
+import '../static/globals.dart';
 import 'snackbar_widget.dart';
 
 class ResetButtonWidget extends StatelessWidget {
@@ -28,14 +29,11 @@ class ResetButtonWidget extends StatelessWidget {
               showSnackBar(context, 'Error reseting queue');
             }
           });
+          await HttpService.getQueue().then((result) {
+            setQueueCounterFromServer(result.regular, result.special);
+          });
         },
       ),
     );
-    // return IconButton(
-    //   onPressed: () {
-    //     HttpService.resetQueueCounter();
-    //   },
-    //   icon: const Icon(Icons.restore),
-    // );
   }
 }
