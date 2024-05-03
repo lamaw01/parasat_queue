@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:parasat_queue/services/sharedpreference_service.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'services/server_service.dart';
 import 'view/intro_view.dart';
 import 'view/server_view.dart';
 import 'view/teller_view.dart';
@@ -29,8 +28,6 @@ void main() async {
   });
 
   runApp(const MyApp());
-
-  ServerService.init();
 }
 
 Widget _redirect() {

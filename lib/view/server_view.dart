@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 // import '../services/server_service.dart';
+import '../services/server_service.dart';
 import '../static/globals.dart';
 import '../widget/settings_button_widget.dart';
 
@@ -15,7 +16,10 @@ class _ServerViewState extends State<ServerView> {
   @override
   void initState() {
     super.initState();
-    // ServerService.init();
+    ServerService.initServer();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await ServerService.getLocalIp();
+    });
   }
 
   @override

@@ -45,16 +45,7 @@ class ServerService {
     }
   }
 
-  static void init() async {
-    await getLocalIp();
-
-    ServerService.setServerIp(SharedPreferencesService.getString('serverIp') ??
-        ServerService.serverIp);
-
-    if (SharedPreferencesService.getBool('isServer') == false) {
-      return;
-    }
-
+  static void initServer() {
     setPrefQueueValue();
 
     _server.get('/', (req, res) {
@@ -100,7 +91,5 @@ class ServerService {
       port: _port,
       serverMode: ServerMode.compatibility,
     );
-
-    log('server ip and port: $_serverIp');
   }
 }

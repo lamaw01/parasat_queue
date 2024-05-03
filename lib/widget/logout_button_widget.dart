@@ -10,6 +10,7 @@ class LogoutButtonWidget extends StatelessWidget {
     return IconButton(
       onPressed: () {
         SharedPreferencesService.removeValue('isServer');
+        SharedPreferencesService.removeValue('serverIp');
       },
       icon: const Icon(Icons.logout),
     );

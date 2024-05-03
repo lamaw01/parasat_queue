@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../services/http_service.dart';
+import '../services/server_service.dart';
 import '../static/globals.dart';
+import '../widget/refresh_button_widget.dart';
 import '../widget/reset_button_widget.dart';
 import '../widget/settings_button_widget.dart';
 import '../widget/snackbar_widget.dart';
@@ -18,6 +20,7 @@ class _TellerViewState extends State<TellerView> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await ServerService.getLocalIp();
       await HttpService.getQueue().then((result) {
         setQueueCounterFromServer(result.regular, result.special);
       });
@@ -31,6 +34,7 @@ class _TellerViewState extends State<TellerView> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Teller'),
         actions: const [
+          RefreshButtonWidget(),
           SettingsButtonWidget(),
         ],
       ),
